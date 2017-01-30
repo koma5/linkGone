@@ -28,14 +28,10 @@ echo <<<HTML
   <meta charset="utf-8">
   <title>link gone!!</title>
 
-  <style type="text/css">
-  </style>
-
-
   </head>
 
-  <body>
-  link gone!!
+  <body style="background: #222;">
+  <span style="color:white; font-size:50px; font-family:sans-serif;">link gone!!</span>
   </body>
 </html>
 HTML;
