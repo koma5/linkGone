@@ -11,7 +11,7 @@ yourls_add_action('pre_redirect','temp_instead_function');
 function temp_instead_function($args) {
   $url  = $args[0];
   $code = $args[1];
-  if (strpos($url, 'link_removed') !== false) {
+  if (strpos($url, '#linkGone') !== false) {
     printPage();
     die();
   }
@@ -20,12 +20,15 @@ function temp_instead_function($args) {
 function printPage() {
 header("HTTP/1.0 410 Gone");
 
+$urlBase  = YOURLS_SITE;
+
 echo <<<HTML
 <!DOCTYPE html>
 <html>
   <head>
 
   <meta charset="utf-8">
+  <meta http-equiv="refresh" content="6; url=$urlBase/">
   <title>link gone!!</title>
 
   </head>
