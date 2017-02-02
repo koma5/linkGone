@@ -39,3 +39,9 @@ echo <<<HTML
 </html>
 HTML;
 }
+
+yourls_add_filter('admin_list_where', 'no_display_of_gone_links');
+function no_display_of_gone_links($where) {
+  $urlBase  = YOURLS_SITE;
+  return $where .= " AND `url` != '$urlBase/#linkGone'";
+}
