@@ -21,6 +21,9 @@ function printPage() {
 header("HTTP/1.0 410 Gone");
 
 $urlBase  = YOURLS_SITE;
+$siteName = $urlBase;
+$siteName = str_replace('http://', '', $siteName);
+$siteName = str_replace('https://', '', $siteName);
 
 echo <<<HTML
 <!DOCTYPE html>
@@ -29,12 +32,12 @@ echo <<<HTML
 
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="6; url=$urlBase/">
-  <title>link gone!!</title>
+  <title>410 link gone!! - $siteName/</title>
 
   </head>
 
   <body style="background: #222;">
-  <span style="color:white; font-size:50px; font-family:sans-serif;">link gone!!</span>
+  <span style="color:white; font-size:50px; font-family:sans-serif;">410 link gone!!</span>
   </body>
 </html>
 HTML;
