@@ -7,8 +7,8 @@ Version: 0.1
 Author: koma5
 Author URI: https://github.com/koma5
   */
-yourls_add_action('pre_redirect','temp_instead_function');
-function temp_instead_function($args) {
+yourls_add_action('pre_redirect','is_link_gone');
+function is_link_gone($args) {
   $url  = $args[0];
   $code = $args[1];
   if (strpos($url, '#linkGone') !== false) {
